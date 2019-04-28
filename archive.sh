@@ -64,9 +64,8 @@ if ! [ -s "$ERROR_FILE" ]; then
 fi
 
 # remove all files from 'input' folder
-rm input/*
+rm -rf input/*
 if [ "$?" -ne "0" ]; then
-  rm $COMPRESS_FILE
   echo "Sorry, unable to delete files from input directory $status"
   exit 1
 fi
@@ -74,7 +73,6 @@ fi
 # for MACOS folders
 find input -name '.DS_Store' -type f -delete
 if [ "$?" -ne "0" ]; then
-  rm $COMPRESS_FILE
   echo "Sorry, unable to delete files from input directory $status"
   exit 1
 fi
